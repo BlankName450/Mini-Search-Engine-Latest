@@ -80,6 +80,10 @@ SpeechRecognition: SpeechRecognition library for speech-to-text conversion.
 Pixabay API: Pixabay API for image retrieval.
 OpenAI GPT-3: OpenAI GPT-3 for conversational AI capabilities.
 
+## ![Documentation]()
+[Mini Search Engin.pdf](https://github.com/BlankName450/Mini-Search-Engine-Latest/files/12703054/Mini.Search.Engin.pdf)
+
+
 ## Contact
 For questions or feedback, please contact Me @ mahmoudsamy450@gmail.com. or here. 
 
