@@ -4,7 +4,7 @@
 
 This Python web application is a versatile tool for searching Wikipedia articles, retrieving relevant images, performing speech-to-text conversion, and interacting with an AI chatbot. Users can communicate with the chatbot to obtain information and assistance.
 
-![Web Application Screenshots]()
+## Web Application Screenshots
 ![Screenshot 2023-08-25 180120](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/0f42c8d7-b9ac-41bf-9468-964236fdf747)
 
 ![Screenshot 2023-08-25 175722](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/6ce0a47c-6ee0-4dfc-8a9a-0157e9f5b61a)
@@ -80,7 +80,7 @@ SpeechRecognition: SpeechRecognition library for speech-to-text conversion.
 Pixabay API: Pixabay API for image retrieval.
 OpenAI GPT-3: OpenAI GPT-3 for conversational AI capabilities.
 
-## ![Documentation]()
+## Documentation
 [Mini Search Engin.pdf](https://github.com/BlankName450/Mini-Search-Engine-Latest/files/12703054/Mini.Search.Engin.pdf)
 
 
