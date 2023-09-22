@@ -1,0 +1,256 @@
+body {
+    min-height: 100%;
+    position: relative;
+    background-color: #68878b;
+}
+
+form {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+}
+
+.s-box {
+    width: 580px;
+    margin: 0px auto;
+    position: relative;
+    margin-top: -8px;
+    text-align: center;
+    padding-top: 90px;
+}
+
+.s-box .s-input {
+    display: block;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 16px;
+    padding: 13px;
+    padding-left: 45px;
+    border-radius: 25px;
+    width: 100%;
+    transition: box-shadow 100ms;
+    outline: none;
+}
+
+.s-box {
+    width: 600px;
+    top: 13px;
+    left: 30px;
+}
+
+.s-input {
+    border: 2px solid rgb(23, 19, 19);
+    opacity: 0.5;
+}
+
+.srch-icon {
+    width: 30px;
+    position: absolute;
+    top: 96px;
+    right: 560px;
+}
+
+.vs-icon {
+    width: 16px;
+    position: absolute;
+    top: 105px;
+    right: 55px;
+}
+
+.c-icon {
+    width: 20px;
+    position: absolute;
+    top: 107px;
+    right: 20px;
+}
+
+.s-btn {
+    border: 1px solid transparent;
+    padding: 9px 15px;
+    color: #666;
+    font-size: 14px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 28px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 100ms;
+}
+
+.datetime {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    background-color: #424242;
+    width: 100%;
+}
+
+.datetime .time {
+    font-size: 20px;
+    margin-right: 10px;
+    color:whitesmoke;
+}
+
+.datetime .date {
+    font-size: 14px;
+    color: whitesmoke;
+}
+
+.section-2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.result {
+    margin-bottom: 100px;
+}
+
+.result h2 a {
+    margin: 0;
+    font-size: 25px;
+  color: #212121;
+  text-decoration: none;
+}
+
+.result p {
+    margin: 0;
+    color: #424242;
+}
+
+.result-link {
+	font-size: 0.8em;
+    color: #ffffff;
+  font-style: italic;
+}
+
+footer {
+   background-color: #424242;
+    padding: 20px;
+    font-size: 14px;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+.links {
+    display: flex;
+}
+
+.link-group {
+    margin-right: 30px;
+}
+
+.link-group a {
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+/* Custom CSS for search results */
+
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.searchresult h2 {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: bold;
+    color: #31313b;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.searchresult a {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.searchresult p {
+    width: 600px;
+    font-size: 13px;
+    margin-top: 0px;
+    color: #424242;
+}
+
+#optionsbar {
+    width: 100%;
+    height: 50px;
+    border-width: 0px;
+    border-bottom: 1px;
+    border-color: lightgray;
+    border-style: solid;
+    display: flex;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    background-color: #f2f2f2;
+}
+
+#optionsmenu1 {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 150px;
+}
+
+#optionsmenu1 li {
+    padding: 0px 10px 15px 20px;
+}
+
+#optionsmenuactive {
+    color: #68878b;
+    font-weight: bold;
+    position: relative;
+    z-index: -1;
+}
+
+#optionbutton {
+    background-color: #68878b;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    border-style: none;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    .s-box {
+        width: 100%;
+    }
+    
+    .srch-icon {
+        top: 105px;
+        right: 50px;
+    }
+    
+    .vs-icon {
+        top: 105px;
+        right: 80px;
+    }
+    
+    .c-icon {
+        top: 107px;
+        right: 140px;
+    }
+    
+    #optionsmenu1 {
+        margin-left: 0px;
+    }
+}

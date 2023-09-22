@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="Rstyle.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function search(query) {
+      $('#results').empty();
+      $.get('/search?q=' + query, function(data) {
+        for (var i = 0; i < data.length; i++) {
+          var result = data[i];
+          var title = result['title'];
+          var category = result['category'];
+          var snippet = result['snippet'];
+          var link = result['link'] ? result['link'] : 'https://en.wikipedia.org/wiki/' + encodeURIComponent(title);
+          var html = '<div class="result">';
+          html += '<div class="result-link">' + link + '</div>';
+          html += '<h2><a href="' + link + '">' + title + '</a></h2>';
+          if (category) {
+            html += '<p>' + category + '</p>';
+          }
+          if (snippet) {
+            html += '<p>' + snippet + '</p>';
+          }
+          html += '</div>';
+          $('#results').append(html);
+        }
+      });
+    }
+
+    $(function() {
+      var searchParams = new URLSearchParams(window.location.search);
+      var query = searchParams.get('q');
+      if (query) {
+        $('#search-input').val(query);
+        search(query);
+      }
+
+      var form = $('#search-form');
+      var input = $('#search-input');
+
+      form.on('submit', function(event) {
+        event.preventDefault();
+        var query = input.val().trim();
+        if (query) {
+          window.location.href = 'home.html?q=' + encodeURIComponent(query);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <section class="section-1">
+    <form id="search-form">
+      <div class="s-box">
+        <input type="text" class="s-input" id="search-input" name="s-input" placeholder="Search Seekify..." />
+        <button type="submit" class="search-button"><img src="srch.png" class="srch-icon" /></button>
+        <button type="button" class="voice-button"><img src="mic.png" class="vs-icon" /></button>
+        <button type="button" class="camera-button"><img src="camera.png" class="c-icon" /></button>
+      </div>
+    </form>
+  </section>
+
+  <section class="section-2">
+    <div id="results"></div>
+  </section>
+</body>
+</html>

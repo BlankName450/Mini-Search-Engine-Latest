@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="signup.css">
+    <script src="signup.js"></script>
+</head>
+<body>
+    <div class="signup">
+        <form onsubmit="return validation()" method="post" action="/signup">
+            <h3 align="center">Sign up</h3>
+            <label>First Name: *</label>
+            <input type="text" name="firstname" placeholder="Your First Name" size="25" required>
+            <label>Last Name: *</label>
+            <input type="text" name="lastname" placeholder="Your Last Name" size="25" required>
+            <label>Email: *</label>
+            <input type="text" name="email" size="25" placeholder="Your Email" required>
+            <label>Password: *</label>
+            <input type="password" name="password" placeholder="Your Password" size="25" required>
+            <div align="center">
+                <input type="submit" value="Sign Up">
+                <input type="reset" value="Clear" onclick="clear2();">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="Rstyle.css" />
+    <script>
+    
+  </script>
+  </head>
+
+  <body>
+    <div id="header">
+      <div id="topbar">
+        <form action="http://localhost:8000/results" method="POST">
+          <div class="s-box">
+            <img src="search.png" class="search-icon" />
+            <input type="text" class="s-input" id="s-input" name="s-input" />
+            <button type="submit"><img src="mic.png" class="vs-icon" /></button>
+            <button type="button"><img src="camera.png" class="c-icon" /></button>
+          </div>
+        </form>
+      </div>
+      <div id="optionsbar">
+        <ul id="optionsmenu1">
+          <li id="optionsmenuactive">All</li>
+          <li> <button onclick="" id="optionbutton">Videos</button></li>
+          <li><button onclick="" id="optionbutton"> Images</button></li>
+          <li> <button onclick="" id="optionbutton">Maps</button></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div id="searchresultsarea">
+      {% for result in results %}
+      <div class="searchresult">
+        <h2 class="title">{{ result.title }}</h2>
+        <a class="url" href="{{ result.url }}">{{ result.url }}</a>
+        <p class="abstract">{{ result.abstract }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </body>
+</html>

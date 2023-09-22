@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Search Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="Istylesheet.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+  <script src="timeWedgit.js" defer></script>
+</head>
+<body>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  
+  <div class="datetime">
+    <div class="time"></div>
+    <div class="date"></div>
+  </div>
+  
+  <section class="section-1">
+    <form id="search-form" method="get" action="home.html">
+      <br /><br />
+      <div class="s-box">
+        <input type="text" class="s-input" id="search-input" name="q" placeholder="Seekfy..." />
+        <button type="button" id="voice-button"><img src="mic.png" class="vs-icon" /></button>
+        <button type="button"> <img src="camera.png" class="c-icon" /></button>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <h4>Egypt</h4>
+    <div class="links">
+      <div class="link-1">
+        <a href="#">About</a>
+        <a href="#">Terms</a>
+      </div>
+      <div class="link-2">
+        <a href="http://localhost:8000/">Seekfy AI</a>
+        <a href="http://localhost:8001/signup">signup</a>
+        <a href="http://localhost:8001/login">Login/logout</a>
+        <a href="http://localhost:8002"> videos </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    $(function() {
+      var searchParams = new URLSearchParams(window.location.search);
+      var query = searchParams.get('q');
+      if (query) {
+        $('#search-input').val(query);
+        $('#search-form').submit();
+      }
+
+      var form = $('#search-form');
+      var input = $('#search-input');
+
+      // Autocomplete functionality
+      input.autocomplete({
+        source: function(request, response) {
+          // Send the autocomplete request
+          $.ajax({
+            url: 'https://en.wikipedia.org/w/api.php',
+            dataType: 'jsonp',
+            data: {
+              action: 'opensearch',
+              format: 'json',
+              search: request.term
+            },
+            success: function(data) {
+              response(data[1]);
+            }
+          });
+        },
+        minLength: 2, // Minimum characters to start showing suggestions
+        select: function(event, ui) {
+          // Redirect to the selected suggestion
+          window.location.href = 'home.html?q=' + encodeURIComponent(ui.item.value);
+        }
+      });
+
+      form.on('submit', function(event) {
+        event.preventDefault();
+        var query = input.val().trim();
+        if (query) {
+          window.location.href = 'home.html?q=' + encodeURIComponent(query);
+        }
+      });
+
+      // Speech-to-text functionality
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      var voiceButton = $('#voice-button');
+
+      voiceButton.on('click', function() {
+        recognition.start();
+      });
+
+      recognition.onresult = function(event) {
+        var result = event.results[0][0].transcript;
+        input.val(result);
+        recognition.stop();
+        form.submit();
+      };
+    });
+  </script>
+  
+</body>
+</html>

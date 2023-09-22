@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/ds-digital');
+      
+      input {
+        margin: 17px auto;
+        width: 50%;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid rgb(161, 163, 161);
+      }
+
+      .header {
+        border-bottom: #010f3c;
+        border-bottom-style: ridge;
+        margin-bottom: 20px;
+      }
+
+      body {
+        background-color: #68878b;
+      }
+
+      p {
+        font-size: 26px;
+        color: black;
+        font-family: 'DS-Digital', sans-serif;
+      }
+
+      /* Style for the logo */
+      .logo {
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+        width: 100%;
+      }
+
+      h1 {
+        font-family: 'DS-Digital', sans-serif;
+        color: black;
+      }
+
+      .button {
+        -webkit-border-radius: 28px;
+        -moz-border-radius: 28px;
+        border-radius: 28px;
+        font-family: 'DS-Digital', sans-serif;
+        color: #ffffff;
+        font-size: 20px;
+        background: #000000;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        background: #68878b;
+        text-decoration: none;
+      }
+
+      /* Style for the logo */
+      .logo {
+        display: block;
+        margin: 0 auto;
+        height: 200px;
+        width: auto;
+      }
+
+      /* Style for search results */
+      #search-results {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #search-results .result {
+        width: 300px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      #search-results .result img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <center><h1>S e e k f y .. the power of A.I. !!</h1></center>
+    </header>
+
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="header">
+          <form id="search-form">
+            <input type="text" name="query" placeholder="Search for videos...">
+            <center><button type="submit" class="button">Search videos</button></center>
+          </form>
+        </div>
+
+        <div id="search-results">
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function() {
+        $('#search-form').submit(function(event) {
+          event.preventDefault();
+          var query = $('input[name="query"]').val();
+          $.ajax({
+            type: 'POST',
+            url: '/search',
+            data: {query: query},
+            success: function(data) {
+              var results = '';
+              $.each(data, function(index, video) {
+                results += '<div class="result"><a href="' + video.video_url + '"><img src="' + video.thumbnail_url + '"></a><h2>' + video.title + '</h2></div>';
+              });
+              $('#search-results').html(results);
+            },
+            error: function() {
+              alert('Error retrieving search results.');
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

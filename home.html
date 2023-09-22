@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="Rstyle.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .section-2 {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #results {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .image-result {
+      margin: 10px;
+      text-align: center;
+    }
+
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    
+  </style>
+  <script>
+    $(document).ready(function() {
+      var searchParams = new URLSearchParams(window.location.search);
+      var query = searchParams.getAll('q').join(' ');
+      if (query) {
+        $('#search-input').val(query);
+        search(query);
+      }
+
+      $('#search-form').submit(function(event) {
+        event.preventDefault();
+        var query = $('#search-input').val();
+        search(query);
+      });
+
+      $('#search-input').autocomplete({
+        source: function(request, response) {
+          $.get('/autocomplete', { q: request.term }, function(data) {
+            response(data);
+          });
+        },
+        minLength: 3,
+        select: function(event, ui) {
+          var suggestion = ui.item.value;
+          $('#search-input').val(suggestion);
+          search(suggestion);
+        }
+      });
+
+      $('.voice-button').click(function() {
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.start();
+
+        recognition.onresult = function(event) {
+          var transcript = event.results[0][0].transcript;
+          $('#search-input').val(transcript);
+          search(transcript);
+        };
+
+        recognition.onend = function() {
+          recognition.stop();
+        };
+      });
+
+      function search(query, isImageSearch = false) {
+        $('#results').empty();
+        var url = isImageSearch ? '/image-search' : '/search';
+        var params = { q: query };
+
+        $.get(url, params, function(data) {
+          if (isImageSearch) {
+            for (var i = 0; i < data.length; i++) {
+              var image = data[i];
+              var imageUrl = image['url'];
+              var tags = image['tags'];
+              var html = '<div class="image-result">';
+              html += '<img src="' + imageUrl + '" alt="' + tags + '" />';
+              html += '<p>' + tags + '</p>'; // Add a paragraph for displaying the tags
+              html += '</div>';
+              $('#results').append(html);
+            }
+          } else {
+            for (var i = 0; i < data.length; i++) {
+              var result = data[i];
+              var title = result['title'];
+              var category = result['category'];
+              var snippet = result['snippet'];
+              var link = result['link'] ? result['link'] : 'https://en.wikipedia.org/wiki/' + encodeURIComponent(title);
+              var html = '<div class="result">';
+              html += '<div class="result-link">' + link + '</div>';
+              html += '<h2><a href="' + link + '">' + title + '</a></h2>';
+              if (category) {
+                html += '<p>' + category + '</p>';
+              }
+              if (snippet) {
+                html += '<p>' + snippet + '</p>';
+              }
+              html += '</div>';
+              $('#results').append(html);
+            }
+          }
+        });
+      }
+
+      $('#camera-button').click(function() {
+        var query = $('#search-input').val();
+        search(query, true);
+      });
+    });
+
+    function updateTime() {
+      var now = new Date();
+      var time = now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+      var date = now.toLocaleDateString();
+      $('.time').text(time);
+      $('.date').text(date);
+    }
+
+    $(document).ready(function() {
+      updateTime();
+      setInterval(updateTime, 1000);
+    });
+  </script>
+</head>
+<body>
+  <div class="datetime">
+    <div class="time"></div>
+    <div class="date"></div>
+  </div>
+ 
+  <section class="section-1">
+    <form id="search-form">
+      <div class="s-box">
+        <input type="text" class="s-input" id="search-input" name="s-input" placeholder="Search Seekfy..." />
+        <button type="submit" class="search-button"></button>
+        <button type="button" class="voice-button"><img src="mic.png" class="vs-icon" /></button>
+        <button type="button" id="camera-button" class="camera-button"><img src="camera.png" class="c-icon" /></button>
+      </div>
+      <ul id="autocomplete-list"></ul>
+    </form>
+  </section>
+  <section class="section-2">
+    <div id="results"></div>
+  </section>
+  <footer>
+    <p>Egypt</p>
+    <div class="links">
+      <div class="link-group">
+        <a href="http://localhost:7112/">Home</a>
+  
+      </div>
+      <div class="link-group">
+        <a href="http://localhost:8000">Seekfy AI</a>
+        <a href="http://localhost:8001/signup">signup</a>
+        <a href="http://localhost:8001/login">Login/logout</a>
+        <a href="http://localhost:8002"> videos </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

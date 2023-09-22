@@ -1,0 +1,38 @@
+<!DOCTYPE html> <html> <head> <title>AI Chatbot</title> </head> <body> <h1>AI Chatbot</h1> <form id="chat-form" action="/" method="post"> <label for="text">Enter your message:</label><br> <input type="text" id="text" name="text"><br> <button type="submit" id="send-button">Send</button> </form> <div id="response"></div> <div id="spinner" style="display: none;"> <img src="spinner.gif" alt="Loading..."> </div> <script> var form = document.querySelector('#chat-form'); var textInput = document.querySelector('#text'); var sendButton = document.querySelector('#send-button'); var responseDiv = document.querySelector('#response'); var spinnerDiv = document.querySelector('#spinner');
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            var text = textInput.value;
+            if (text.trim() === '') {
+                return;
+            }
+            sendButton.disabled = true;
+            spinnerDiv.style.display = 'block';
+            fetch('/', {
+                method: 'POST',
+                body: JSON.stringify({text: text}),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                responseDiv.innerHTML = data.response;
+            })
+            .catch(error => {
+                responseDiv.innerHTML = 'An error occurred: ' + error.message;
+            })
+            .finally(() => {
+                sendButton.disabled = false;
+                spinnerDiv.style.display = 'none';
+                textInput.value = '';
+                textInput.focus();
+            });
+        });
+    </script>
+    </body> </html>

@@ -1,0 +1,165 @@
+body {
+	background-image: url('Chillhop\ -\ White\ Oak\ -\ frame\ at\ 0m2s.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: arial, sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+
+.section-1 {
+	flex: 1;
+}
+
+
+
+.s-box {
+	width: 580px;
+	margin: 0px auto;
+	position: relative;
+	margin-top: -8px;
+	text-align: center;
+	padding-top: 90px;
+}
+
+.s-box .s-input {
+	display: block;
+	border: 1px solid rgb(255, 255, 255);
+	color: rgba(0, 0, 0, 0.87);
+	font-size: 16px;
+	padding: 13px;
+	padding-left: 45px;
+	border-radius: 25px;
+	width: 100%;
+	transition: box-shadow 100ms;
+	outline: none;
+}
+
+
+.s-box {
+	width: 600px;
+	top: 13px;
+	left: 14px;
+}
+
+.s-input {
+	border: 2px solid rgb(23, 19, 19);
+	opacity: 0.5;
+}
+
+.search-icon {
+	width: 20px;
+	position: absolute;
+	top: 105px;
+	right: 560px;
+}
+
+.vs-icon {
+	width: 16px;
+	position: absolute;
+	top: 105px;
+	right: 55px;
+}
+
+.c-icon {
+	width: 20px;
+	position: absolute;
+	top: 107px;
+	right: 20px;
+}
+
+.s-btn {
+	border: 1px solid transparent;
+	padding: 9px 15px;
+	color: #666;
+	font-size: 14px;
+	border-radius: 4px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 28px;
+	outline: none;
+	cursor: pointer;
+	transition: border-color 100ms;
+}
+
+
+
+footer {
+	background: #535050;
+}
+
+footer h4 {
+	color: #ffffff;
+	font-size: 11px;
+	line-height: 29px;
+	font-weight: 400;
+	padding-left: 29px;
+	border: 1px solid #eee;
+}
+
+footer a {
+	color: #ffffff;
+	display: inline-block;
+	padding: 12px 11.3px;
+	font-size: 11px;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+.links {
+	border-top: 1px solid rgb(184, 180, 180);
+	display: flex;
+
+}
+
+.link-1 {
+	padding-left: 18.7px;
+	flex: 1;
+}
+
+.link-2 {
+	padding-right: 18.7px;
+}
+
+
+.datetime {
+
+	font-size: 8px;
+	padding: 20px;
+	color: #ffffff;
+	background: #444444;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	border-radius: 2px;
+	border-right: 10px #009578 solid;
+	width: 250px;
+	font-weight: 500;
+	font-family: "Inter", sans-serif;
+	margin-top: 40px;
+	margin-left: 1000px;
+
+}
+
+.time {
+	font-size: 3em;
+	color: #00ffcc;
+}
+
+.date {
+	margin-top: 12px;
+	font-size: 1.75em;
+}
