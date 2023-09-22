@@ -1,38 +1,76 @@
-The provided Python web application appears to be a combination of several features related to searching Wikipedia articles and searching for images using the Pixabay API. Here's a summary of what this app does:
+# Wikipedia Search and Image Retrieval Web Application with AI Chatbot
 
-Wikipedia Article Search:
+## Overview
 
-The app allows users to search for Wikipedia articles by entering a query in the search bar.
-It performs Wikipedia article searches by sending requests to the Wikipedia API (https://en.wikipedia.org/w/api.php) and retrieves search results.
-The search results include titles, categories, and snippets of Wikipedia articles.
-The app displays these search results to the user.
-Image Search:
+This Python web application is a versatile tool for searching Wikipedia articles, retrieving relevant images, performing speech-to-text conversion, and interacting with an AI chatbot. Users can communicate with the chatbot to obtain information and assistance.
 
-Users can also search for images by entering a query in the search bar.
-The app performs image searches by sending requests to the Pixabay API (https://pixabay.com/api/) using the Pixabay API key.
-It retrieves a list of images related to the search query, along with associated tags.
-The app displays these images and their tags to the user.
-Speech-to-Text:
+![Web Application Screenshot](screenshot.png)
 
-The app provides a speech-to-text functionality.
-Users can click on a microphone icon to activate speech recognition.
-When activated, the app listens to the user's speech input and attempts to convert it into text.
-The recognized text (speech-to-text result) is displayed on the page.
-Database Integration:
+## Features
 
-The app integrates with SQLite databases (wikipedia.db and image_search.db) to store and retrieve data.
-It stores Wikipedia article information (titles, categories, snippets, and more) in the wikipedia.db database.
-It also stores image information (query, image URLs, and tags) in the image_search.db database.
-User Interface:
+- **Wikipedia Article Search**: Users can search for Wikipedia articles by entering keywords in the search bar. The application retrieves relevant articles, including titles, categories, and snippets.
 
-The app provides a user interface that allows users to interact with the search functionality, view search results, and access the speech-to-text feature.
-HTML Templates:
+- **Image Search**: Users can search for images using the Pixabay API. The application displays images related to the search query along with associated tags.
 
-The app uses HTML templates (e.g., index.html, login.html) to structure and present content to users.
-These templates are served to users when they access different routes of the app.
-Basic Authentication (if applicable):
+- **Speech-to-Text Conversion**: The application provides a speech-to-text feature. Users can speak into their microphone, and the application converts their speech into text.
 
-The app appears to have some form of user authentication (e.g., login and signup) based on the code structure, although the specific implementation details are not provided.
-Please note that while the app demonstrates these functionalities, the provided code snippet does not include all the necessary details, such as HTML templates and complete routes. To fully utilize this app, you would need to create the missing components, ensure that the databases are properly set up, and provide Pixabay API keys and other necessary configurations.
+- **AI Chatbot Interaction**: Users can interact with an AI chatbot to obtain information, ask questions, and receive responses in a conversational manner.
 
-In summary, this app allows users to search for Wikipedia articles and images, perform speech-to-text conversion, and potentially authenticate users 
+- **Database Integration**: Data is stored and retrieved from SQLite databases. The `wikipedia.db` database contains Wikipedia article data, while the `image_search.db` database stores image search results.
+
+- **Basic Authentication (Optional)**: The application supports basic user authentication for login and potentially signup (implementation details are not provided).
+
+## Tools and Libraries
+
+The following tools and libraries were used to build this application:
+
+- Python
+- HTTP Server
+- SQLite Database
+- Web Scraping (Beautiful Soup, Requests)
+- Natural Language Processing (NLTK)
+- Text Processing (TfidfVectorizer)
+- Speech Recognition (SpeechRecognition)
+- Wikipedia API
+- Pixabay API
+- AI Chatbot (OpenAI GPT-3)
+- HTML Templates
+- Basic Authentication (Optional)
+- JSON
+
+## Getting Started
+
+1. Install the required Python packages:
+
+   ```bash
+   pip install speechrecognition beautifulsoup4 scikit-learn nltk openai
+
+2. Download NLTK data: using this code lines 
+      import nltk
+      nltk.download('stopwords')
+3.Create and set up SQLite databases: Ensure that the wikipedia.db and image_search.db databases are created and configured for data storage.
+4.Run the Application write this in python compiler terminal or command prompt :
+                                                                                  python start.py
+5.Access the Web Application by opening a web browser and navigating to http://localhost:7112/
+
+## Usage
+Use the search bar to search for Wikipedia articles and images.
+Click on the microphone icon for speech-to-text conversion.
+Interact with the AI chatbot by entering text in the chat interface.
+
+## Acknowledgments
+Scikit-Learn: Scikit-Learn library for TF-IDF vectorization.
+NLTK: Natural Language Toolkit for text preprocessing.
+SpeechRecognition: SpeechRecognition library for speech-to-text conversion.
+Pixabay API: Pixabay API for image retrieval.
+OpenAI GPT-3: OpenAI GPT-3 for conversational AI capabilities.
+
+## Contact
+For questions or feedback, please contact Me @ mahmoudsamy450@gmail.com. or here. 
+
+## LinkedIn
+https://www.linkedin.com/in/mahmoud-samy-843855243/
+
+                      
+ 
+        
