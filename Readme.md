@@ -4,7 +4,22 @@
 
 This Python web application is a versatile tool for searching Wikipedia articles, retrieving relevant images, performing speech-to-text conversion, and interacting with an AI chatbot. Users can communicate with the chatbot to obtain information and assistance.
 
-![Web Application Screenshot](screenshot.png)
+![Web Application Screenshots]()
+![Screenshot 2023-08-25 180120](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/0f42c8d7-b9ac-41bf-9468-964236fdf747)
+
+![Screenshot 2023-08-25 175722](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/6ce0a47c-6ee0-4dfc-8a9a-0157e9f5b61a)
+
+![Screenshot 2023-08-25 175746](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/22b9aa10-18cf-461d-9135-219106f26e94)
+
+![Screenshot 2023-08-25 175734](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/3c37a88d-5dac-4214-b1dc-46841b7def8a)
+
+![Screenshot 2023-08-25 180257](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/95d7a6af-5de6-4f9c-aa7f-763b85236e32)
+
+![Screenshot 2023-08-25 180428](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/c9ab08a1-551c-4425-a406-cb1620d22abb)
+
+![Screenshot 2023-08-25 180612](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/74f4ad87-76ee-40a2-bf5e-160bd0121f44)
+
+![Screenshot 2023-08-25 180625](https://github.com/BlankName450/Mini-Search-Engine-Latest/assets/62857282/e39b6f0d-011e-4034-9b77-5ad0ffaa9861)
 
 ## Features
 
