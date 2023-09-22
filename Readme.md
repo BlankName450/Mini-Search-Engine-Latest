@@ -33,7 +33,7 @@ This Python web application is a versatile tool for searching Wikipedia articles
 
 - **Database Integration**: Data is stored and retrieved from SQLite databases. The `wikipedia.db` database contains Wikipedia article data, while the `image_search.db` database stores image search results.
 
-- **Basic Authentication (Optional)**: The application supports basic user authentication for login and potentially signup (implementation details are not provided).
+- **Basic Authentication (Optional)**: The application supports basic user authentication for login and potentially signup.
 
 ## Tools and Libraries
 
